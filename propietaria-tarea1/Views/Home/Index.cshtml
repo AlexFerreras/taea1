@@ -1,0 +1,62 @@
+﻿@{
+   
+    ViewData["Title"] = "Home Page";
+    @model Operation;
+}
+
+
+<form asp-controller="Home" asp-action="Index" method="post">
+    <div class="form-group">
+
+        <div class="row">
+            <label asp-for="Number1" class="col-lg-2"></label>
+            <input type="number" asp-for="Number1" class="col-lg-2" />
+        </div>
+        <div class="row">
+            <label asp-for="Number2" class="col-lg-2"></label>
+            <input type="number" asp-for="Number2" class="col-lg-2" />
+        </div>
+
+        <div class="row">
+            <label asp-for="OperationType" class="col-lg-2"></label>
+
+            <select asp-for="OperationType" class="col-lg-2" asp-items="Html.GetEnumSelectList<OperationType>()">
+                <option selected="selected" value="">Select</option>
+            </select>
+        </div>
+        <div class="row">
+            <label asp-for="Result" class="col-lg-2"></label>
+            <input type="number" disabled="disabled" class="col-lg-2" asp-for="Result" />
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit" asp-action="Index" />
+        </div>
+    </div>
+</form>
+
+<!--
+<table>
+    <thead>
+        <tr class="bg-primary">
+            <th>Number 1</th>
+            <th>Operator</th>
+            <th>Number 2</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+      ## foreach (var operation in Model)
+    {
+            <tr>
+                <td class="bg-info">operation.Number1</td>
+                <td class="bg-info">operation.OperationType</td>
+                <td class="bg-info">operation.Number2</td>
+                <td class="bg-info">operation.Result</td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+    !-->
